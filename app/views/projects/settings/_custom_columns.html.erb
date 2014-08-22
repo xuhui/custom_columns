@@ -6,6 +6,7 @@
     # move it to helper soon
     setting = JSON.parse @project.cstmcols if @project && @project.cstmcols.size > 0
     setting = Setting.issue_list_default_columns unless setting
+    puts "@@@ SETTING #{setting}"
     issue = IssueQuery.new(:column_names => setting)
 %>
 
