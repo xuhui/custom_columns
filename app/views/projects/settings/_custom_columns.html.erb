@@ -1,0 +1,20 @@
+<%= 
+  form_tag({:action => 'columns', :tab => 'columns'}, :onsubmit => 'selectAllOptions("selected_columns");') do 
+%>
+
+<%
+    # move it to helper soon
+    setting = JSON.parse @project.cstmcols if @project && @project.cstmcols.size > 0
+    setting = Setting.issue_list_default_columns unless setting
+    issue = IssueQuery.new(:column_names => setting)
+%>
+
+  <fieldset class="box">
+    <legend><%= l(:setting_issue_list_default_columns) %></legend>
+    <%= render_query_columns_selection( issue,
+          :name => 'settings[issue_list_default_columns]') %>
+  </fieldset>
+
+<%= submit_tag l(:button_save) %>
+<% end %>
+
