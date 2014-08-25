@@ -11,10 +11,12 @@ module CustomColumnsModule
     def default_columns_names_with_project
       setting = JSON.parse project.cstmcols if project.present? && project.cstmcols.size > 0
       setting = Setting.issue_list_default_columns unless setting
-      @default_columns_names ||= begin
+      r = @default_columns_names ||= begin
         default_columns = setting.map(&:to_sym)
         project.present? ? default_columns : [:project] | default_columns
       end
+      puts "XH: default_columns_names return #{r}"
+      return r
     end
   end
 
