@@ -18,7 +18,7 @@ module EnhancedProjectSettingModule
               {:name => 'repositories', :action => :manage_repository, :partial => 'projects/settings/repositories', :label => :label_repository_plural},
               {:name => 'boards', :action => :manage_boards, :partial => 'projects/settings/boards', :label => :label_board_plural},
               {:name => 'activities', :action => :manage_project_activities, :partial => 'projects/settings/activities', :label => :enumeration_activities},
-              {:name => 'columns', :action => :manage_boards, :partial => 'projects/settings/custom_columns', :label => :label_issue_columns_plural}
+              {:name => 'columns', :action => :edit_project, :partial => 'projects/settings/custom_columns', :label => :label_issue_columns_plural}
               ]
       tabs.select {|tab| User.current.allowed_to?(tab[:action], @project)}
     end

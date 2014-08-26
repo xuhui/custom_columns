@@ -13,7 +13,7 @@ Redmine::Plugin.register :custom_columns do
   name 'Custom Issue Columns by Project'
   author 'Zhou Xuhui'
   description 'Custom issue columns by project'
-  version '0.0.1'
+  version '0.0.2'
   url 'https://github.com/xuhui/custom_columns'
   author_url 'https://github.com/xuhui'
   permission :manage_columns, {:projects => :columns}, :require => :member
