@@ -3,7 +3,6 @@
 
 resources :projects do
   member do
-    get 'settings(/:tab)', :action => 'settings', :as => 'settings'
     post 'columns'
   end
 end
